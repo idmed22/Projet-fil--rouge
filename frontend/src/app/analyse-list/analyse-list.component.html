@@ -1,0 +1,134 @@
+<div class="container p-3 m-2">
+    <!-- <nav class="p-2 m-2">
+        <button class="btn btn btn-outline-info" >New Rendez Vous</button>
+    </nav> -->
+<!-- <div class="card"> -->
+      <!-- <div class="card-header"> Anaalyse  List</div> -->
+      <div class="col">
+          <table  class="table">
+              <thead>
+                  <tr>
+                      <th >ID</th>
+                      <th>Analyse Type</th>
+                      <th>Chimie Courante</th>
+                      <th>Enzymologie</th>
+                      <th>Hormonologie</th>
+                      <th>Date Prelevement</th>
+                      <th>Description</th>
+                      <th>Nom Preleveur</th>
+                      <th>Sang Type</th>
+                      <th></th>
+                      <th></th>
+                     
+                               
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let a of analyses">
+                    <td>{{a.id}}</td>
+                    <td>{{a.analyseType}}</td>
+                    <td>{{a.analyseTypePartie.chimieCourante}}</td>
+                    <td>{{a.analyseTypePartie.enzymologie}}</td>
+                    <td>{{a.analyseTypePartie.hormonologie}}</td>
+                    <td>{{a.datePrelevement}}</td>
+                    <td>{{a.description}}</td>
+                    <td>{{a.nomPreleveur}}</td>
+                    <td>{{a.sangTypes}}</td>
+                   
+                    <td>
+
+                        <button (click)="handleDeleteAnalyse(a.id)" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                          </td>
+  
+                         <td>
+                          <button (click)="handleUpdateBtn(a)" class="btn btn-warning">
+                              <i class="bi bi-pencil-square"></i>
+                          </button>
+                         </td>
+                    
+                  </tr>
+              </tbody>
+
+          </table>
+          
+      </div>
+  </div>
+
+<!-- </div> -->
+
+<h4 class="text-center font-monospace">Add Analyse</h4>
+
+<form  class="col-md-6 offset-md-3">
+    <div class="form-group">
+            <label for="one" class="font-monospace">Analyse Type</label>
+            <input [(ngModel)]="saveAnalyse.analyseTypePartie.analyseType" type="text" name="analyseType" id="one" class="form-control">
+    </div>
+
+    <!-- <div class="form-group">
+        <label for="two">Chimie Courante</label>
+        <input [(ngModel)]="saveAnalyse.chimieCourante" type="text" name="chimieCourante" id="two" class="form-control">
+   </div> -->
+   <div class="form-group"> 
+    <label class="font-monospace">Chimie Courante</label>
+  <select [(ngModel)]="saveAnalyse.analyseTypePartie.chimieCourante" class="form-control" id ="frre"  name = "chimieCourante" type="select" matNativeControl required>
+    <option   value="true">True</option>
+    <option value="false">False</option>
+  </select>
+  </div>
+
+<!-- <div class="form-group">
+    <label for="three">Enzymologie</label>
+    <input [(ngModel)]="saveAnalyse.enzymologie" type="text" name="enzymologie" id="three" class="form-control">
+</div> -->
+
+<div class="form-group"> 
+    <label class="font-monospace">Enzymologie</label>
+  <select [(ngModel)]="saveAnalyse.analyseTypePartie.enzymologie" class="form-control" id ="frre"  name = "enzymologie" type="select" matNativeControl required>
+    <option   value="true">True</option>
+    <option value="false">False</option>
+  </select>
+  </div>
+
+<!-- <div class="form-group">
+    <label for="foor">Hormonologie</label>
+    <input [(ngModel)]="saveAnalyse.hormonologie" type="text" name="hormonologie" id="foor" class="form-control">
+</div> -->
+
+<div class="form-group"> 
+    <label class="font-monospace">Hormonologie</label>
+  <select [(ngModel)]="saveAnalyse.hormonologie" class="form-control" id ="frre"  name = "hormonologie" type="select" matNativeControl required>
+    <option   value="true">True</option>
+    <option value="false">False</option>
+  </select>
+  </div>
+
+
+<div class="form-group">
+    <label for="five" class="font-monospace">Date Prelevement</label>
+    <input [(ngModel)]="saveAnalyse.datePrelevement" type="date" name="date" id="five" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="seven" class="font-monospace">Description</label>
+    <input [(ngModel)]="saveAnalyse.description" type="text" name="description" id="seven" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label for="uit" class="font-monospace">Nom Preleveur</label>
+    <input [(ngModel)]="saveAnalyse.nomPreleveur" type="text" name="nomPreleveur" id="uit" class="form-control">
+</div>
+
+
+<div class="form-group">
+    <label for="naf" class="font-monospace">Sang Type</label>
+    <input [(ngModel)]="saveAnalyse.sangTypes" type="text" name="sangTypes" id="naf" class="form-control">
+</div>
+
+
+<button *ngIf="!myCondition" (click)="handleAddanalyse()" class=" btn btn-info mt-2 font-monospace">save</button>
+
+<button *ngIf="myCondition" (click)="UpdateAnalyse()" class="btn btn-warning m-2 font-monospace">Update</button>
+</form>

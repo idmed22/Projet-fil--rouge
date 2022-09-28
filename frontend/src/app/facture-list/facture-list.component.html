@@ -1,0 +1,83 @@
+<div class="container p-3 m-2">
+    <!-- <nav class="p-2 m-2">
+        <button class="btn btn btn-outline-info" >New Rendez Vous</button>
+    </nav> -->
+    
+<!-- <div class="card"> -->
+     
+      <div class="col">
+          <table  class="table thead">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Montant</th>
+                      <th>Payer</th>
+                      <th>Facture Date</th>
+                      <th>Patients id</th>
+                      <th></th>
+                      <th></th>
+                               
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let f of factures">
+                    <td>{{f.id}}</td>
+                    <td>{{f.montant}}</td>
+                    <td>{{f.payer}}</td>
+                    <td>{{f.factureDate}}</td>
+                    <td>{{f.patients.id}}</td>
+                   
+                    <td>
+
+                        <button (click)=" handleDeleteFacture(f.id)" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                          </td>
+  
+                         <td>
+                          <button (click)="handleUpdateBtn(f)" class="btn btn-warning">
+                              <i class="bi bi-pencil-square"></i>
+                          </button>
+                         </td>
+                    
+                  </tr>
+              </tbody>
+
+          </table>
+          
+      </div>
+  </div>
+
+<!-- </div> -->
+<h4 class="text-center font-monospace">Add Facture</h4>
+
+<form  class="col-md-6 offset-md-3">
+    <div class="form-group">
+            <label for="one" class="font-monospace">Montant</label>
+            <input [(ngModel)]="saveFacture.montant" type="number" name="montant" id="one" class="form-control">
+    </div>
+
+    <div class="form-group"> 
+        <label class="font-monospace">Payer</label>
+      <select [(ngModel)] ="saveFacture.payer" class="form-control" id ="tree"  name = "payer" type="select" matNativeControl required>
+        <option   value="true">True</option>
+        <option value="false">False</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+        <label class="font-monospace">Facture Date</label>
+        <input [(ngModel)] = "saveFacture.factureDate" type="date" name="factureDate" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label class="font-monospace">Patient id</label>
+        <input [(ngModel)] ="saveFacture.patients.id" type="number" name="patientsId" class="form-control">
+    </div>
+
+
+
+<button *ngIf="!myCondition" (click)="handleAddUser()" class=" btn btn-info mt-2 font-monospace">save</button>
+
+<button *ngIf="myCondition" (click)="UpdateFacture()" class="btn btn-warning m-2 font-monospace">Update</button>
+</form>

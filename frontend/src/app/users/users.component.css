@@ -1,0 +1,36 @@
+table{
+    border-collapse: collapse;
+    box-shadow: 0 2px 15px rgba(121, 120, 120, 0.7);
+    border-radius: 12px 12px 0 0;
+    border-spacing: 0;
+    background-color: white;
+    overflow: hidden;
+    
+}
+
+
+td , th{
+    padding: 2px 5px;
+    text-align: center;
+   }
+
+
+   th{
+    background-color: #A5C9CA;
+    color: #fafafa;
+    font-family: 'Open Sans',Sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+   
+   }
+   
+   tr{
+    width: 100%;
+    background-color: #fafafa;
+    font-family: 'Montserrat', sans-serif;
+   }
+
+   tr:nth-child(even){
+    background-color: #eeeeee;
+   }
+

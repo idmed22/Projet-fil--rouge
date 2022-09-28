@@ -1,0 +1,81 @@
+<div class="container p-3 m-2">
+    <!-- <nav class="p-2 m-2">
+        <button class="btn btn btn-outline-info" >New Rendez Vous</button>
+    </nav> -->
+<!-- <div class="card"> -->
+      <!-- <div class="card-header"> Dossier Medical  List</div> -->
+      <div class="col">
+          <table  class="table-responsive">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Code Access</th>
+                      <th>Date Creation</th>
+                      <th>Etat</th>
+                      <th>Patients</th>
+                      <th></th>
+                      <th></th>
+                               
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let d of dossierMed">
+                    <td>{{d.id}}</td>
+                    <td>{{d.codeAccess}}</td>
+                    <td>{{d.dateCreation}}</td>
+                    <td>{{d.etat}}</td>
+                    <td>{{d.patients.id}}</td>
+                   
+                   
+                    <td>
+
+                        <button (click)="handleDeleteDossier(d.id)" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                          </button>
+                          </td>
+  
+                         <td>
+                          <button (click)="handleUpdateBtn(d)" class="btn btn-warning">
+                              <i class="bi bi-pencil-square"></i>
+                          </button>
+                         </td>
+                    
+                  </tr>
+              </tbody>
+
+          </table>
+          
+      </div>
+  </div>
+ 
+<!-- </div> -->
+
+<h4 class="text offset-md-7 font-monospace">Add Dossier</h4>
+
+<form  class="col-md-4 offset-md-7">
+    <div class="form-group">
+            <label for="one" class="font-monospace">Code Access</label>
+            <input [(ngModel)]="saveDossier.codeAccess" type="text" name="codeAccess" id="one" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="two" class="font-monospace">Date Creation</label>
+        <input [(ngModel)]="saveDossier.dateCreation" type="date" name="dateCreation" id="two" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="three" class="font-monospace">Etat</label>
+    <input [(ngModel)]="saveDossier.etat" type="text" name="etat" id="three" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="foor" class="font-monospace">Patients</label>
+    <input [(ngModel)]="saveDossier.patients.id" type="number" name="patients" id="foor" class="form-control">
+</div>
+
+
+<button *ngIf="!myCondition" (click)="handleAddDossier()" class=" btn btn-info mt-2 font-monospace">save</button>
+
+<button *ngIf="myCondition" (click)="UpdateDossier()" class="btn btn-warning m-2 font-monospace">Update</button>
+</form>
+
